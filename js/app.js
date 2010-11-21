@@ -12,16 +12,14 @@
 
     this.bind('stats-loaded', function(e, data) {
       var context = this;
-      console.log('LOADED', data);
-      $.each(data, function(i, item) {
-        context.render('templates/stats.ejs', { item: item }).replace('#stats');
-      })
+      console.log('Stats loaded:', data);
+      context.render('templates/stats.ejs', { stats: data }).replace('#stats');
     });
 
     // -- Routes
 
     this.get('#/', function(context) {
-      Smoke.viewStats({}, function(data) { context.trigger('stats-loaded', data.rows) })
+      Smoke.stats( function(data) { context.trigger( 'stats-loaded', data ) } );
     });
 
     this.post('#/create', function(context) {
