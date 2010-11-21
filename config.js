@@ -1,5 +1,5 @@
 {
-  "id": "ashtray",
+  "id": "smokes",
   "mapDirectories": {
   "Jimfile": false,
   "sass": false,
