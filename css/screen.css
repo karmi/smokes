@@ -1,2 +1,4 @@
 body
-  { font-family: Helvetica, sans-serif; }
+  { font-family: Helvetica, sans-serif;
+    background: url('../images/cigarette.png') bottom left no-repeat;
+    padding-bottom: 180px; }
