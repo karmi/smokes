@@ -46,12 +46,22 @@ Smoke.extend({
                            { group_level : 3,
                              key: [yesterday.getFullYear(), yesterday.getMonth()+1,yesterday.getDate()] }), function(data) {
                     if (data.rows[0]) { stats.yesterday = data.rows[0].value; }
-                    // Today
+                    // Average
                     Smoke.view('stats',
                       $.extend({}, default_options,
-                               { group_level : 3, key: [today.getFullYear(), today.getMonth()+1, today.getDate()] }), function(data) {
-                        if (data.rows[0]) { stats.today = data.rows[0].value; }
-                        return callback(stats);
+                               { group_level : 3, limit: 365 }), function(data) {
+                        if (data.rows[0]) {
+                          stats.average = 0;
+                          for (el in data.rows ) { stats.average += data.rows[el].value; };
+                          stats.average = Math.round( stats.average / data.rows.length);
+                        };
+                        // Today
+                        Smoke.view('stats',
+                          $.extend({}, default_options,
+                                   { group_level : 3, key: [today.getFullYear(), today.getMonth()+1, today.getDate()] }), function(data) {
+                            if (data.rows[0]) { stats.today = data.rows[0].value; }
+                            return callback(stats);
+                        });
                     });
                 });
             });
