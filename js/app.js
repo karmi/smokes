@@ -14,6 +14,8 @@
       var context = this;
       console.log('Stats loaded:', data);
       context.render('templates/stats.ejs', { stats: data }).replace('#stats');
+      $('#today .value').text( data.today );
+      $('#average .value').text( data.average );
     });
 
     // -- Routes

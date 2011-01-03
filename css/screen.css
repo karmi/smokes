@@ -1,6 +1,12 @@
 body
-  { font-family: Helvetica, sans-serif;
+  { color: #fff;
+    background: #19191a;
+    font-family: Helvetica, sans-serif;
     margin: 2em; }
+
+a { color: #fff; }
+
+p { margin: 0; padding: 0; }
 
 button
   { font-size: 18px;
@@ -11,26 +17,28 @@ button
     border-radius: 5px;
     -moz-border-radius: 5px; }
 
+header
+  { float: left;
+    width: 180px; }
+
+#button
+  { float: left;
+    width: 85px; }
+
 #stats
   { margin: 1em 0 1em 0;
-    height: 5em; }
+    height: 5em;
+    float: left; }
+
+#stats .column
+  { float: left;
+    margin-left: 1em; }
+
 #stats p
-  { font-size: 24px;
-    margin: 0;
-    padding: 0; }
-#stats p.today
-  { font-size: 34px;
-    margin-top: 0.25em; }
+  { font-size: 12px;
+    }
+
 #stats p .label
   { color: #999;
     font-size: 14px;
-    text-transform: uppercase;
-    width: 10em;
-    display: block;
-    float: left;
-    position: relative;
-    top: 0.25em; }
-#stats p.today .label
-  { font-size: 34px;
-    width: 4em;
-    top: 0em; }
+    text-transform: uppercase; }

@@ -1,8 +1,8 @@
-<div class="stats">
-  <p class="year" ><span class="label">Year</span>          <%= stats.year  || '0' %></p>
-  <p class="month"><span class="label">Month</span>         <%= stats.month || '0' %></p>
-  <p class="week"><span class="label">Week</span>           <%= stats.week || '0' %></p>
-  <p class="yesterday"><span class="label">Yesterday</span> <%= stats.yesterday || '0' %></p>
-  <p class="today"><span class="label">Today</span>         <%= stats.today || '0' %></p>
-  <p class="average"><span class="label">Average</span>     <%= stats.average || '0' %></p>
-</div>
+<section class="column">
+  <p class="year" ><span class="label">Year</span>          <span class="value"><%= stats.year  || '0' %></span></p>
+  <p class="month"><span class="label">Month</span>         <span class="value"><%= stats.month || '0' %></span></p>
+</section>
+<section class="column">
+  <p class="week"><span class="label">Week</span>           <span class="value"><%= stats.week || '0' %></span></p>
+  <p class="yesterday"><span class="label">Yesterday</span> <span class="value"><%= stats.yesterday || '0' %></span></p>
+</section>
