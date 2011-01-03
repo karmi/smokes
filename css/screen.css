@@ -1,44 +1,76 @@
+nav,
+section,
+aside,
+footer,
+header
+  { display: block; }
+
 body
   { color: #fff;
     background: #19191a;
     font-family: Helvetica, sans-serif;
-    margin: 2em; }
+    margin: 2em 4em; }
 
 a { color: #fff; }
 
 p { margin: 0; padding: 0; }
 
-button
-  { font-size: 18px;
-    color: #222;
-    padding: 0.25em 1em 0.25em 1em;
-    border: 1px solid #222;
-    background-color: #ccc;
-    border-radius: 5px;
-    -moz-border-radius: 5px; }
-
 header
   { float: left;
-    width: 180px; }
+    width: 11em;
+    margin-right: 2em; }
+
+header h1
+  { font-size: 2em;
+    font-weight: normal; }
+
+header section
+  { float: none;
+    clear: both; }
+
+header .label
+  { float: left;
+    margin-right: 0.25em; }
+header .value
+  { float: left; }
+
+header #today
+  { font-size: 2.2em;
+    position: relative;
+    width: 100%; }
+header #today .value
+  { font-size: 2.4em;
+    position: absolute;
+    top: -0.45em;
+    right: 0; }
+
+header #average
+  { color: #8c8c8d;
+    font-size: 0.7em; }
+header #average .value
+  { font-weight: bold;
+    margin-left: 0.2em; }
 
 #button
   { float: left;
-    width: 85px; }
+    margin: -0.25em 0 0 1em; }
 
 #stats
-  { margin: 1em 0 1em 0;
-    height: 5em;
+  { margin: 1em 0 0 1em;
     float: left; }
 
 #stats .column
   { float: left;
-    margin-left: 1em; }
+    margin-left: 2em; }
 
 #stats p
-  { font-size: 12px;
-    }
+  { line-height: 1.5em; }
 
-#stats p .label
-  { color: #999;
-    font-size: 14px;
+#stats .label
+  { color: #e5e5e5;
+    font-size: 0.8em;
     text-transform: uppercase; }
+
+#stats .value
+  { font-size: 1.4em;
+    font-weight: normal; }
