@@ -25,10 +25,12 @@ button
   { color: #999;
     font-size: 14px;
     text-transform: uppercase;
-    width: 4em;
+    width: 10em;
     display: block;
     float: left;
     position: relative;
     top: 0.25em; }
 #stats p.today .label
-  { top: 0.45em; }
+  { font-size: 34px;
+    width: 4em;
+    top: 0em; }
