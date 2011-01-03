@@ -9,6 +9,7 @@ body
   { color: #fff;
     background: #19191a;
     font-family: Helvetica, sans-serif;
+    letter-spacing: -0.1em;
     margin: 2em 4em; }
 
 a { color: #fff; }
@@ -18,7 +19,7 @@ p { margin: 0; padding: 0; }
 header
   { float: left;
     width: 11em;
-    margin-right: 2em; }
+    margin-right: 2.2em; }
 
 header h1
   { font-size: 2em;
@@ -32,12 +33,15 @@ header .label
   { float: left;
     margin-right: 0.25em; }
 header .value
-  { float: left; }
+  { float: left;
+    letter-spacing: -0.2em; }
 
 header #today
   { font-size: 2.2em;
     position: relative;
     width: 100%; }
+header #today .label
+  { letter-spacing: -0.125em; }
 header #today .value
   { font-size: 2.4em;
     position: absolute;
@@ -46,7 +50,8 @@ header #today .value
 
 header #average
   { color: #8c8c8d;
-    font-size: 0.7em; }
+    font-size: 0.7em;
+    padding-left: 0.75em; }
 header #average .value
   { font-weight: bold;
     margin-left: 0.2em; }
@@ -64,13 +69,18 @@ header #average .value
     margin-left: 2em; }
 
 #stats p
-  { line-height: 1.5em; }
+  { line-height: 1em; }
 
 #stats .label
   { color: #e5e5e5;
     font-size: 0.8em;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    width: 3.5em;
+    display: block;
+    float: left;
+    padding-top: 0.31em; }
 
 #stats .value
   { font-size: 1.4em;
-    font-weight: normal; }
+    font-weight: normal;
+    letter-spacing: -0.2em; }
