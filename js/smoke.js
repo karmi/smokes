@@ -36,7 +36,10 @@ Smoke.extend({
                          endkey:   [today.getFullYear(), today.getMonth()+1,today.getDate()],
                          limit:    7,
                          descending: false }), function(data) {
-                if (data.rows[0]) { stats.week = data.rows[0].value; }
+                if (data.rows[0]) {
+                  stats.week = 0;
+                  $.each(data.rows, function(i, el) { stats.week += el.value; });
+                };
                 // Yesterday
                 Smoke.view('stats',
                   $.extend(default_options,
