@@ -13,6 +13,7 @@ Smoke.extend({
     var day       = 86400000;
     var today     = new Date();
     var yesterday = new Date( today.getTime() - day );
+    var week_ago  = new Date( today.getTime() - (day*7) );
 
     // TODO: Ask @quirkey how to work around this maddness :)
     // Year
@@ -23,15 +24,24 @@ Smoke.extend({
         Smoke.view('stats',
           $.extend({ group_level : 2, startkey: [today.getFullYear(), today.getMonth()+1, {}] }, default_options), function(data) {
             if (data.rows[0]) { stats.month = data.rows[0].value; }
-            // Yesterday
+            // Week
             Smoke.view('stats',
-              $.extend({ group_level : 3, key: [yesterday.getFullYear(), yesterday.getMonth()+1,yesterday.getDate()] }, default_options), function(data) {
-                if (data.rows[0]) { stats.yesterday = data.rows[0].value; }
-                // Today
+              $.extend({ group_level : 3,
+                         startkey: [today.getFullYear(), today.getMonth()+1,today.getDate()],
+                         endkey:   [week_ago.getFullYear(), week_ago.getMonth()+1, week_ago.getDate()],
+                         limit:    7 },
+                         default_options), function(data) {
+                if (data.rows[0]) { stats.week = data.rows[0].value; }
+                // Yesterday
                 Smoke.view('stats',
-                  $.extend({ group_level : 3, key: [today.getFullYear(), today.getMonth()+1, today.getDate()] }, default_options), function(data) {
-                    if (data.rows[0]) { stats.today = data.rows[0].value; }
-                    return callback(stats);
+                  $.extend({ group_level : 3, key: [yesterday.getFullYear(), yesterday.getMonth()+1,yesterday.getDate()] }, default_options), function(data) {
+                    if (data.rows[0]) { stats.yesterday = data.rows[0].value; }
+                    // Today
+                    Smoke.view('stats',
+                      $.extend({ group_level : 3, key: [today.getFullYear(), today.getMonth()+1, today.getDate()] }, default_options), function(data) {
+                        if (data.rows[0]) { stats.today = data.rows[0].value; }
+                        return callback(stats);
+                    });
                 });
             });
          });
