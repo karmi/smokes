@@ -48,6 +48,15 @@ header #today .value
     top: -0.45em;
     right: 0; }
 
+header #today .value.zero
+  { color: #3f3f3f; }
+header #today .value.lo
+  { color: #fff; }
+header #today .value.mid
+  { color: #33c3ff; }
+header #today .value.hi
+  { color: #ff0059; }
+
 header #average
   { color: #8c8c8d;
     font-size: 0.7em;
