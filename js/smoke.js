@@ -12,6 +12,8 @@ Smoke.extend({
 
     var day       = 86400000;
     var today     = new Date();
+    // Let's count after midnight smokes as belonging to the previous day
+    if ( today.getHours() < 5 ) { today = new Date(today.getTime() - day ); }
     var yesterday = new Date( today.getTime() - day );
     var week_ago  = new Date( today.getTime() - (day*7) );
 
