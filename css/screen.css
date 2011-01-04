@@ -67,7 +67,13 @@ header #average .value
 
 #button
   { float: left;
-    margin: -0.25em 0 0 1em; }
+    margin: -0.25em 0 0 1em;
+    position: relative; }
+#button img
+  { position: absolute;
+    top: 0;
+    bottom: 0;
+    display: none; }
 
 #stats
   { margin: 1em 0 0 1em;

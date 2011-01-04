@@ -46,6 +46,7 @@
     });
 
     this.post('#/create', function(context) {
+      $('#button img').show('fast').fadeOut('slow').delay(150);
       Smoke.create(this.params['smoke'], function() { context.redirect('#/'); });
       ;
     });
