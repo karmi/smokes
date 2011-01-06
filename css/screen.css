@@ -99,3 +99,10 @@ header #average .value
   { font-size: 1.4em;
     font-weight: normal;
     letter-spacing: -0.2em; }
+
+svg
+  { position: absolute;
+    left: 0;
+    bottom: 2em;
+    width: 100%;
+    height: 60px; }

@@ -37,6 +37,8 @@
       })();
       // Update average count
       $('#average .value').text( data.average );
+      // Draw chart
+      Chart.draw(data.data);
     });
 
     // -- Routes

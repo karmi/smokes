@@ -53,6 +53,7 @@ Smoke.extend({
                       $.extend({}, default_options,
                                { group_level : 3, limit: 365 }), function(data) {
                         if (data.rows[0]) {
+                          stats.data    = data;
                           stats.average = 0;
                           for (el in data.rows ) { stats.average += data.rows[el].value; };
                           stats.average = Math.round( stats.average / data.rows.length);
