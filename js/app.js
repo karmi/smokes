@@ -17,11 +17,10 @@
       context.render('templates/stats.ejs', { stats: data }).replace('#stats');
       // Update today class and count (animated)
       var today = $('#today .value');
-      var count = parseInt(data.today);
+      var count = parseInt(data.today) || 0;
       if (count > 0) { today.removeClass('zero'); };
       (function() {
         var original_value = parseInt(today.text()) || 0;
-        var current_value  = data.today || 0;
         var update_value = function(value) { return today.text(value); };
         var update_class = function(value) {
           var classname = '';
@@ -30,7 +29,7 @@
           if (value > 8) { classname = 'hi';   };
           today.addClass(classname);
         };
-        for (var i=0; i < current_value; i++) {
+        for (var i=today.text(); i <= count; i++) {
           setTimeout(update_value, i*75, i);
           setTimeout(update_class, i*75, i);
         };
