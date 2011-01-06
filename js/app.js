@@ -38,7 +38,7 @@
       // Update average count
       $('#average .value').text( data.average );
       // Draw chart
-      Chart.draw(data.data);
+      if (data.data && data.data.rows && data.data.rows.length > 0) Chart.draw(data.data);
     });
 
     // -- Routes
