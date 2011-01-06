@@ -8,6 +8,9 @@
 
     this.bind('run', function() {
       var context = this;
+      if ( document.location.hostname == 'localhost' ) {
+        $('body').append('<div id="development-badge">DEVELOPMENT VERSION</div>')
+      }
     });
 
     this.bind('stats-loaded', function(e, data) {
