@@ -2,6 +2,11 @@ Chart = {
 
   draw : function(data) {
     console.log('Drawing, ', data);
+
+    /* Reverse timeline */
+    // TODO: Do a clone() of original data
+    data.rows.reverse()
+
     /* Sizing and scales. */
     var left_margin = 20,
         right_margin = 0,
