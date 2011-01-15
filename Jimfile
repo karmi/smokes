@@ -4,11 +4,14 @@
 
 / start adding your requirements below:
 
-sha1
 jquery 1.4.4
 jquery.couch 0.11
 protovis r3.2
 sammy 0.6.2
 sammy.couch 0.1.0
 sammy.ejs
+sha1
+
 js/app
+js/chart
+js/smoke
