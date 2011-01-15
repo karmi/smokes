@@ -1,4 +1,5 @@
 .DS_Store
 js/default.js
 js/production.js
+cache.manifest
 .couchapprc
