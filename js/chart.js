@@ -1,11 +1,11 @@
 Chart = {
 
   draw : function(data) {
-    console.log('Drawing, ', data);
-
     /* Reverse timeline */
     // TODO: Do a clone() of original data
     data.rows.reverse()
+
+    console.log('Drawing, ', data);
 
     /* Sizing and scales. */
     var left_margin = 20,
@@ -53,12 +53,6 @@ Chart = {
           this.previous_year( current_year );
           return visible;
         })
-      .anchor("left").add(pv.Dot)
-        .left( function(d) { return x(this.index); } )
-        .shape('bar')
-        .lineWidth(1)
-        .strokeStyle('#333')
-        .size(45)
       .anchor("right").add(pv.Label)
         .left( function(d) { return x(this.index)+3; } )
         .text( function(d) { return d.key.slice(0, 1); } )
@@ -69,19 +63,28 @@ Chart = {
     /* X-axis: Months */
     vis.add(pv.Rule)
         .data(data.rows)
-        .def("previous_month", data.rows[1].key[1]-1)
+        .def("previous_month", data.rows[0].key[1]-1)
         .left(function(d) { return x(this.index); })
-        .bottom(40)
-        .height(10)
+        .bottom(0)
+        .height(45)
         .strokeStyle('none')
         .visible( function(d) {
           var current_month = d.key[1], visible = current_month != this.previous_month();
-          console.log('current ' + current_month, 'previous: ' + this.previous_month());
+          // console.log('current: ' + current_month, ', previous: ' + this.previous_month(),  ', month: ' + months[ current_month ]);
           this.previous_month( current_month );
           return visible;
         })
+      .anchor("left").add(pv.Dot)
+        .left( function(d) { return x(this.index); } )
+        .shape('bar')
+        .lineWidth(1)
+        .strokeStyle('#333')
+        .size(45)
+      .anchor("top").add(pv.Dot)
+        .bottom(45)
+        .fillStyle('none')
+        .strokeStyle('none')
       .anchor("right").add(pv.Label)
-        .left( function(d) { return x(this.index)+3; } )
         .text( function(d) { return months[ d.key[1] ]; } )
         .font('10px sans-serif')
         .textBaseline('top')
