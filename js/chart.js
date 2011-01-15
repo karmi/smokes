@@ -3,7 +3,10 @@ Chart = {
   draw : function(data) {
     console.log('Drawing, ', data);
     /* Sizing and scales. */
-    var w = $(window).width(),
+    var left_margin = 20,
+        right_margin = 0,
+        top_margin  = 5,
+        w = $(window).width()-left_margin-right_margin,
         h = 100,
         max =  pv.max(data.rows, function() { return data.rows[this.index].value; }),
         x = pv.Scale.linear(0, data.rows.length-1).range(0, w),
@@ -16,10 +19,10 @@ Chart = {
 
     /* The root panel. */
     var vis = new pv.Panel()
-        .width(w-20)
+        .width(w)
         .height(h)
-        .left(20)
-        .top(10);
+        .left(left_margin)
+        .top(top_margin);
 
     /* Y-axis guides and ticks. */
     vis.add(pv.Rule)
