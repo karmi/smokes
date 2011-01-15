@@ -6,6 +6,7 @@ Chart = {
     var w = $(window).width(),
         h = 100,
         max =  pv.max(data.rows, function() { return data.rows[this.index].value; }),
+        x = pv.Scale.linear(0, data.rows.length-1).range(0, w),
         y = pv.Scale.linear(0, max).range(0, h);
 
     /* The root panel. */
@@ -13,14 +14,11 @@ Chart = {
         .width(w)
         .height(h);
 
-    /* Width of segment (day) */
-    var segment_width = Math.round( w / (data.rows.length-1) )+1;
-
     /* The area with top line. */
     vis.add(pv.Area)
         .data(data.rows)
         .bottom(1)
-        .left(function() { return this.index * segment_width; })
+        .left(function(d) { return x(this.index); })
         .height(function(d) { return y(d.value); })
         .fillStyle("none")
       .anchor("top").add(pv.Line)
