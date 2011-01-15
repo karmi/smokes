@@ -26,7 +26,7 @@ Chart = {
         .strokeStyle("white")
         .lineWidth(3);
 
-    vis.canvas = 'chart';
+    vis.canvas('chart');
     vis.render();
   }
   
