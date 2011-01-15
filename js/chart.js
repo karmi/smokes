@@ -38,14 +38,20 @@ Chart = {
         .text(y.tickFormat)
         .textStyle( function(d) { return utils.value_to_color(d) } );
 
-    /* X-axis and ticks. */
+    /* X-axis: Years */
     vis.add(pv.Rule)
         .data(data.rows)
         .left(function(d) { return x(this.index); })
-        .bottom(10)
+        .bottom(5)
         .height(5)
-      .anchor("bottom").add(pv.Label)
-        .text( function(d) { return d.key.slice(-1).join('') } )
+      .anchor("right").add(pv.Label)
+        .def("previous_year", data.rows[0].key.slice(0, 1)-1)
+        .text( function(d) { return d.key.slice(0, 1); } )
+        .visible( function(d) {
+          var current_year = d.key.slice(0, 1), visible = current_year > this.previous_year();
+          this.previous_year( current_year );
+          return visible;
+        })
         .textStyle('#666');
 
     /* The area with top line. */
