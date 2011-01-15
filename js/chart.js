@@ -2,10 +2,11 @@ Chart = {
 
   draw : function(data) {
     console.log('Drawing, ', data);
-
     /* Sizing and scales. */
     var w = $(window).width(),
-        h = 60;
+        h = 100,
+        max =  pv.max(data.rows, function() { return data.rows[this.index].value; }),
+        y = pv.Scale.linear(0, max).range(0, h);
 
     /* The root panel. */
     var vis = new pv.Panel()
@@ -20,9 +21,10 @@ Chart = {
         .data(data.rows)
         .bottom(1)
         .left(function() { return this.index * segment_width; })
-        .height(function(d) { return d.value; })
+        .height(function(d) { return y(d.value); })
         .fillStyle("none")
       .anchor("top").add(pv.Line)
+        .interpolate('basis')
         .strokeStyle("white")
         .lineWidth(3);
 
