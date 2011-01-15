@@ -12,7 +12,17 @@ Chart = {
     /* The root panel. */
     var vis = new pv.Panel()
         .width(w)
-        .height(h);
+        .height(h)
+        .left(20);
+
+    /* Y-axis guides and ticks. */
+    vis.add(pv.Rule)
+        .data(y.ticks(5))
+        .bottom(y)
+        .strokeStyle( function(d) { return d ? "#333" : "none"; } )
+      .anchor("left").add(pv.Label)
+        .text(y.tickFormat)
+        .textStyle( function(d) { return d ? "#333" : "none"; } );
 
     /* The area with top line. */
     vis.add(pv.Area)
