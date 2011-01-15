@@ -1,15 +1,22 @@
 {
   "id": "smokes",
+
   "mapDirectories": {
-  "Jimfile": false,
-  "sass": false,
-  "css": "_attachments/css",
-  "config.js": "",
-  "templates": "_attachments/templates",
-  "images": "_attachments/images",
-  "db": "",
-  "hooks": false,
-  "js": "_attachments/js",
-  "index.html": "_attachments/index.html"
-}
+    "Jimfile":    false,
+    "Rakefile":   false,
+    "couchapprc": false,
+    "sass":       false,
+    "hooks":      false,
+    "db":         "",
+
+    "config.js": "config.json",
+    "templates": "_attachments/templates",
+
+    "index.html":      "_attachments/index.html",
+    "cache.manifest" : "_attachments/cache.manifest",
+    "images":          "_attachments/images",
+    "js":              "_attachments/js",
+    "css":             "_attachments/css"
+  }
+
 }
