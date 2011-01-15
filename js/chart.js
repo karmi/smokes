@@ -30,6 +30,16 @@ Chart = {
         .text(y.tickFormat)
         .textStyle( function(d) { return utils.value_to_color(d) } );
 
+    /* X-axis and ticks. */
+    vis.add(pv.Rule)
+        .data(data.rows)
+        .left(function(d) { return x(this.index); })
+        .bottom(10)
+        .height(5)
+      .anchor("bottom").add(pv.Label)
+        .text( function(d) { return d.key.slice(-1).join('') } )
+        .textStyle('#666');
+
     /* The area with top line. */
     vis.add(pv.Area)
         .data(data.rows)
