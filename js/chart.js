@@ -9,6 +9,11 @@ Chart = {
         x = pv.Scale.linear(0, data.rows.length-1).range(0, w),
         y = pv.Scale.linear(0, max).range(0, h);
 
+    var utils = {
+      value_to_color : function(d) {
+        switch(d) { case 0: return 'none'; case 10: return '#386E8B'; case 15: return '#702F43'; default: return '#333'; }; }
+    };
+
     /* The root panel. */
     var vis = new pv.Panel()
         .width(w)
@@ -19,10 +24,10 @@ Chart = {
     vis.add(pv.Rule)
         .data(y.ticks(5))
         .bottom(y)
-        .strokeStyle( function(d) { return d ? "#333" : "none"; } )
+        .strokeStyle( function(d) { return utils.value_to_color(d) } )
       .anchor("left").add(pv.Label)
         .text(y.tickFormat)
-        .textStyle( function(d) { return d ? "#333" : "none"; } );
+        .textStyle( function(d) { return utils.value_to_color(d) } );
 
     /* The area with top line. */
     vis.add(pv.Area)
