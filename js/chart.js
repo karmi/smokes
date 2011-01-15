@@ -16,9 +16,10 @@ Chart = {
 
     /* The root panel. */
     var vis = new pv.Panel()
-        .width(w)
+        .width(w-20)
         .height(h)
-        .left(20);
+        .left(20)
+        .top(10);
 
     /* Y-axis guides and ticks. */
     vis.add(pv.Rule)
