@@ -60,6 +60,17 @@ and open the application in browser:
 
     $ soca open
 
+You may well want to seed the database with some dummy data, to see something interesting. That's easy.
+
+First, install the `json` and `rest-client` gems:
+
+    $ gem install json rest-client --no-ri --no-rdoc
+
+Then, run the provided Rake task:
+
+    $ rake seed
+
+And reload the app.
 
 ## Deployment ##
 
