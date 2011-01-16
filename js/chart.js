@@ -1,13 +1,13 @@
 Chart = {
 
   draw : function(data) {
-    /* Reverse timeline */
+    /* Reverse the timeline */
     // TODO: Do a clone() of original data
     data.rows.reverse()
 
     console.log('Drawing, ', data);
 
-    /* Sizing and scales. */
+    /* Sizing and scales */
     var left_margin = 20,
         right_margin = 0,
         top_margin  = 5,
@@ -19,24 +19,23 @@ Chart = {
         y = pv.Scale.linear(0, max).range(0, h-bottom_ticks_height);
 
     var utils = {
-      value_to_color : function(d) {
-        switch(d) { case 0: return 'none'; case 10: return '#386E8B'; case 15: return '#702F43'; default: return '#333'; }; }
-    },
-       months = [null, 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+      value_to_color : function(d) { switch(d) { case 0: return 'none'; case 10: return '#386E8B'; case 15: return '#702F43'; default: return '#333'; }; },
+      months         : [null, 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
+    };
 
-    /* The root panel. */
+    /* The root panel */
     var vis = new pv.Panel()
         .width(w)
         .height(h)
         .left(left_margin)
         .top(top_margin);
 
-    /* Y-axis guides and ticks. */
+    /* Y-axis: guides and ticks */
     vis.add(pv.Rule)
         .data(y.ticks(5))
         .bottom(function(d) { return bottom_ticks_height+y(d); })
         .strokeStyle( function(d) { return utils.value_to_color(d) } )
-      .anchor("left").add(pv.Label)
+       .anchor("left").add(pv.Label)
         .text(y.tickFormat)
         .textStyle( function(d) { return utils.value_to_color(d) } );
 
@@ -53,7 +52,7 @@ Chart = {
           this.previous_year( current_year );
           return visible;
         })
-      .anchor("right").add(pv.Label)
+       .anchor("right").add(pv.Label)
         .left( function(d) { return x(this.index)+3; } )
         .text( function(d) { return d.key.slice(0, 1); } )
         .font('20px sans-serif')
@@ -74,31 +73,31 @@ Chart = {
           this.previous_month( current_month );
           return visible;
         })
-      .anchor("left").add(pv.Dot)
+       .anchor("left").add(pv.Dot)
         .left( function(d) { return x(this.index); } )
         .shape('bar')
         .lineWidth(1)
         .strokeStyle('#333')
         .size(45)
-      .anchor("top").add(pv.Dot)
+       .anchor("top").add(pv.Dot)
         .bottom(45)
         .fillStyle('none')
         .strokeStyle('none')
-      .anchor("right").add(pv.Label)
-        .text( function(d) { return months[ d.key[1] ]; } )
+       .anchor("right").add(pv.Label)
+        .text( function(d) { return utils.months[ d.key[1] ]; } )
         .font('10px sans-serif')
         .textBaseline('top')
         .textStyle('#333')
         .textMargin('0');
 
-    /* The area with top line. */
+    /* The chart */
     vis.add(pv.Area)
         .data(data.rows)
         .bottom(bottom_ticks_height)
         .left(function(d) { return x(this.index); })
         .height(function(d) { return y(d.value); })
         .fillStyle("none")
-      .anchor("top").add(pv.Line)
+       .anchor("top").add(pv.Line)
         .interpolate('basis')
         .strokeStyle("white")
         .lineWidth(3);
