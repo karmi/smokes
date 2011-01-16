@@ -4,7 +4,7 @@
       "db": "http://localhost:5984/smokes"
     },
     "production": {
-      "db": "http://admin:admin@localhost:5984/smokes"
+      "db": "http://USERNAME:PASSWORD@SERVER/smokes"
     }
   }
 }

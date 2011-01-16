@@ -8,6 +8,8 @@
     "sass":       false,
     "hooks":      false,
     "db":         "",
+    "screenshot.png"  : false,
+    "README.markdown" : false,
 
     "config.js": "config.json",
     "templates": "_attachments/templates",
