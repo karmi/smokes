@@ -3,7 +3,7 @@
 An application to keep track of how many cigarettes you smoke in a long run.
 
 It's a standalone HTML/JS application served from [CouchDB](http://couchdb.apache.org/) database,
-so called _CouchApp_, made with the [_soca_](https://github.com/quirkey/soca) Rubygem.
+so called _CouchApp_, built with the [_soca_](https://github.com/quirkey/soca) Rubygem.
 
 It's specifically tailored for usage on the iPhone:
 
@@ -98,6 +98,8 @@ Don't forget to put this instance as an environment into the `.couchapprc` file,
 probably as `production`. You can deploy the application simply by doing:
 
     $ soca push --debug=true production
+
+For quick access to the application on the iPhone, put it on your homescreen.
 
 Please report any errors, concerns or similar as Github Issues.
 
